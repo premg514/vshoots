@@ -99,6 +99,18 @@ export default function Work() {
               initial="enter"
               animate="center"
               exit="exit"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.4}
+              onDragEnd={(_, info) => {
+                const swipeThreshold = 50;
+                if (info.offset.x > swipeThreshold) {
+                  prev();
+                } else if (info.offset.x < -swipeThreshold) {
+                  next();
+                }
+              }}
+              className="cursor-grab active:cursor-grabbing select-none touch-none"
             >
               <ActiveCard item={reelItems[current]} />
             </motion.div>
