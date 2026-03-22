@@ -4,12 +4,22 @@ import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 const reelItems = [
-  { label: "Brand Story Reel", tag: "Brand", emoji: "🎬", bg: "from-[#1a1a1a] to-[#2a2a2a]" },
-  { label: "Product Showcase", tag: "E-commerce", emoji: "📦", bg: "from-[#111827] to-[#1f2937]" },
-  { label: "Restaurant Special", tag: "Food & Bev", emoji: "🍽️", bg: "from-[#1a1a1a] to-[#292524]" },
-  { label: "Fashion Drop", tag: "Lifestyle", emoji: "👗", bg: "from-[#111827] to-[#1e1b4b]" },
-  { label: "Event Coverage", tag: "Events", emoji: "🎉", bg: "from-[#1a1a1a] to-[#27272a]" },
-  { label: "Fitness Studio", tag: "Wellness", emoji: "💪", bg: "from-[#0f172a] to-[#1e293b]" },
+  { 
+    label: "Brand Story Reel", 
+    video: "https://res.cloudinary.com/deeejohfw/video/upload/v1774193077/WhatsApp_Video_2026-03-22_at_8.50.11_PM_oxxepk.mp4",
+  },
+  { 
+    label: "Product Showcase", 
+    video: "https://res.cloudinary.com/deeejohfw/video/upload/v1774193076/WhatsApp_Video_2026-03-22_at_8.50.16_PM_yfkisn.mp4",
+  },
+  { 
+    label: "Professional Shoot", 
+    video: "https://res.cloudinary.com/deeejohfw/video/upload/v1774193077/WhatsApp_Video_2026-03-22_at_8.50.11_PM_oxxepk.mp4",
+  },
+  { 
+    label: "Creative Edit", 
+    video: "https://res.cloudinary.com/deeejohfw/video/upload/v1774193076/WhatsApp_Video_2026-03-22_at_8.50.16_PM_yfkisn.mp4",
+  },
 ];
 
 const variants: Variants = {
@@ -35,6 +45,7 @@ const variants: Variants = {
 export default function Work() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [isMuted, setIsMuted] = useState(true);
 
   const go = (newIndex: number, dir: number) => {
     setDirection(dir);
@@ -62,11 +73,11 @@ export default function Work() {
         className="text-center px-4 mb-14 sm:mb-20"
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-100 shadow-sm mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#a61d27] animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-v-yellow animate-pulse" />
           <span className="text-xs font-bold text-v-dark tracking-widest uppercase">Our Work</span>
         </div>
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-v-dark tracking-tight leading-[1.05]">
-          Content that <span className="text-[#a61d27]">speaks</span> for itself.
+          Content that <span className="text-v-yellow">speaks</span> for itself.
         </h2>
         <p className="mt-5 text-v-gray font-medium max-w-xl mx-auto text-base sm:text-lg">
           Premium iPhone reels crafted and delivered for businesses across Vijayawada.
@@ -78,19 +89,19 @@ export default function Work() {
         {/* Side ghost cards (desktop only) */}
         <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-full max-w-5xl justify-between items-center pointer-events-none">
           {/* Left ghost */}
-          <div className="w-[220px] h-[380px] flex-shrink-0 opacity-30 scale-90 origin-right -translate-x-4">
+          <div className="w-[180px] aspect-[9/16] flex-shrink-0 opacity-10 scale-90 origin-right -translate-x-12">
             <GhostCard item={getItem(-1)} />
           </div>
           {/* Center spacer */}
-          <div className="w-[280px]" />
+          <div className="w-[320px]" />
           {/* Right ghost */}
-          <div className="w-[220px] h-[380px] flex-shrink-0 opacity-30 scale-90 origin-left translate-x-4">
+          <div className="w-[180px] aspect-[9/16] flex-shrink-0 opacity-10 scale-90 origin-left translate-x-12">
             <GhostCard item={getItem(1)} />
           </div>
         </div>
 
-        {/* Active Card */}
-        <div className="relative w-full max-w-[280px] sm:max-w-[320px] z-10 overflow-hidden">
+        {/* Active Card Container */}
+        <div className="relative w-full max-w-[280px] sm:max-w-[320px] z-10 aspect-[9/16]">
           <AnimatePresence mode="popLayout" custom={direction}>
             <motion.div
               key={current}
@@ -110,9 +121,13 @@ export default function Work() {
                   next();
                 }
               }}
-              className="cursor-grab active:cursor-grabbing select-none touch-none"
+              className="cursor-grab active:cursor-grabbing select-none touch-none h-full"
             >
-              <ActiveCard item={reelItems[current]} />
+              <ActiveCard 
+                item={reelItems[current]} 
+                isMuted={isMuted} 
+                toggleMuted={() => setIsMuted(!isMuted)} 
+              />
             </motion.div>
           </AnimatePresence>
         </div>
@@ -120,38 +135,32 @@ export default function Work() {
 
       {/* Navigation Controls */}
       <div className="flex items-center justify-center gap-6 mt-12">
-        {/* Prev Button */}
         <button
           onClick={prev}
           aria-label="Previous"
-          className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-v-dark hover:bg-v-yellow hover:border-v-yellow hover:text-v-dark hover:-translate-y-0.5 transition-all duration-300"
+          className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-v-dark hover:bg-v-yellow hover:border-v-yellow transition-all duration-300"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
           </svg>
         </button>
 
-        {/* Dot Indicators */}
         <div className="flex items-center gap-2.5">
           {reelItems.map((_, i) => (
             <button
               key={i}
               onClick={() => go(i, i > current ? 1 : -1)}
-              aria-label={`Go to slide ${i + 1}`}
               className={`rounded-full transition-all duration-300 ${
-                i === current
-                  ? "w-8 h-2.5 bg-v-dark"
-                  : "w-2.5 h-2.5 bg-gray-300 hover:bg-v-yellow"
+                i === current ? "w-8 h-2.5 bg-v-dark" : "w-2.5 h-2.5 bg-gray-300"
               }`}
             />
           ))}
         </div>
 
-        {/* Next Button */}
         <button
           onClick={next}
           aria-label="Next"
-          className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-v-dark hover:bg-v-yellow hover:border-v-yellow hover:text-v-dark hover:-translate-y-0.5 transition-all duration-300"
+          className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-v-dark hover:bg-v-yellow hover:border-v-yellow transition-all duration-300"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -168,12 +177,12 @@ export default function Work() {
         className="text-center mt-12 sm:mt-16"
       >
         <a
-          href={`https://wa.me/919440771314?text=${encodeURIComponent("Hi Vshoots! I'd love to see more of your work and discuss a shoot.")}`}
+          href={`https://wa.me/919440771314?text=${encodeURIComponent("Hi Vshoots! I saw your work on the website and I'm interested in booking a shoot.")}`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-3 px-8 py-4 bg-v-dark text-white font-bold rounded-full shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:bg-v-yellow hover:text-v-dark hover:shadow-[0_8px_24px_rgba(242,191,24,0.3)] hover:-translate-y-0.5 transition-all duration-300"
         >
-          <span>Book a Shoot</span>
+          <span>See More & Book a Shoot</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
           </svg>
@@ -183,36 +192,62 @@ export default function Work() {
   );
 }
 
-function ActiveCard({ item }: { item: typeof reelItems[0] }) {
+function ActiveCard({ 
+  item, 
+  isMuted, 
+  toggleMuted 
+}: { 
+  item: typeof reelItems[0]; 
+  isMuted: boolean;
+  toggleMuted: () => void;
+}) {
   return (
-    <div className={`relative w-full h-[460px] sm:h-[520px] bg-gradient-to-br ${item.bg} rounded-3xl overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)] border border-white/5`}>
-      <div className="absolute inset-0 flex flex-col justify-between p-6">
-        <div className="flex items-center justify-between">
-          <span className="bg-white/10 text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1.5 rounded-full backdrop-blur-sm">
-            {item.tag}
-          </span>
-          <div className="w-2.5 h-2.5 rounded-full bg-[#f2bf18] animate-pulse shadow-[0_0_10px_#f2bf18]" />
+    <div className="relative w-full h-full bg-black rounded-[32px] overflow-hidden shadow-[0_40px_80px_-20px_rgba(0,0,0,0.4)] border border-white/10 group">
+      {/* Video Background - Contain for original aspect */}
+      <video
+        src={item.video}
+        autoPlay
+        muted={isMuted}
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-contain"
+      />
+      
+      {/* Gradient Overlay for content legibility */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none" />
+
+      {/* Controls / Overlay */}
+      <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-7">
+        <div className="flex items-center justify-between relative z-10">
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              toggleMuted();
+            }}
+            className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-[#f2bf18] hover:text-v-dark transition-all duration-300"
+            title={isMuted ? "Unmute" : "Mute"}
+          >
+            {isMuted ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            )}
+          </button>
+          <div className="w-2.5 h-2.5 rounded-full bg-v-yellow shadow-[0_0_15px_#f2bf18] animate-pulse" />
         </div>
 
-        <div className="flex items-center justify-center text-8xl opacity-20">{item.emoji}</div>
-
-        {/* Center play */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center shadow-xl">
-            <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-          </div>
-        </div>
-
-        <div>
-          <p className="text-white/40 text-[10px] font-medium tracking-widest uppercase mb-1.5">Vshoots Original</p>
-          <h4 className="text-white font-black text-xl leading-tight">{item.label}</h4>
-          <div className="mt-4 h-0.5 bg-white/10 rounded-full overflow-hidden">
+        <div className="relative z-10">
+          <p className="text-white/60 text-[9px] font-bold tracking-[0.2em] uppercase mb-1.5">Vshoots Original</p>
+          <h4 className="text-white font-black text-lg sm:text-xl tracking-tight leading-none mb-4">{item.label}</h4>
+          
+          {/* Custom Progress Bar */}
+          <div className="h-1 bg-white/10 rounded-full overflow-hidden">
             <motion.div
               key={item.label}
-              className="h-full bg-[#f2bf18] rounded-full"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
-              transition={{ duration: 8, ease: "linear" }}
+              transition={{ duration: 10, ease: "linear", repeat: Infinity }}
+              className="h-full bg-v-yellow shadow-[0_0_10px_#f2bf18]"
             />
           </div>
         </div>
@@ -223,8 +258,17 @@ function ActiveCard({ item }: { item: typeof reelItems[0] }) {
 
 function GhostCard({ item }: { item: typeof reelItems[0] }) {
   return (
-    <div className={`w-full h-full bg-gradient-to-br ${item.bg} rounded-3xl border border-white/5 flex items-center justify-center text-5xl`}>
-      {item.emoji}
+    <div className="relative w-full h-full rounded-[32px] overflow-hidden border border-white/10 bg-black">
+      <video
+        src={item.video}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-contain opacity-40"
+      />
+      <div className="absolute inset-0 bg-black/40" />
     </div>
   );
 }
+
