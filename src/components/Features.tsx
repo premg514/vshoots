@@ -244,12 +244,12 @@ export default function Features() {
             <div className="w-2 h-2 rounded-full bg-[#F2BF18] animate-pulse" />
             <span className="text-white/50 text-sm font-medium">Every project treated like a flagship production</span>
           </div>
-          <button className="group/btn flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#F2BF18] text-[#0D0D0D] text-sm font-black tracking-wide hover:bg-white transition-colors duration-300">
+          <a href="#pricing" className="group/btn flex items-center gap-2.5 px-6 py-3 rounded-xl bg-[#F2BF18] text-[#0D0D0D] text-sm font-black tracking-wide hover:bg-white transition-colors duration-300">
             Start a Project
             <svg className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
             </svg>
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
