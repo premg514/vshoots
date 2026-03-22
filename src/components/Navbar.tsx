@@ -26,9 +26,9 @@ export default function Navbar() {
           <Image
             src="https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png"
             alt="Vshoots Logo"
-            width={120}
-            height={40}
-            className="h-10 w-auto object-contain group-hover:opacity-80 transition-opacity"
+            width={180}
+            height={60}
+            className="h-14 w-auto object-contain group-hover:opacity-80 transition-opacity"
             priority
           />
         </Link>

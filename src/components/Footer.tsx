@@ -29,9 +29,9 @@ export default function Footer() {
               <Image
                 src="https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png"
                 alt="Vshoots Logo"
-                width={130}
-                height={45}
-                className="h-11 w-auto object-contain brightness-0 invert group-hover:opacity-80 transition-opacity"
+                width={180}
+                height={60}
+                className="h-16 w-auto object-contain brightness-0 invert group-hover:opacity-80 transition-opacity"
               />
             </Link>
             <p className="text-white/50 text-sm font-medium leading-relaxed max-w-xs mt-3">
@@ -46,12 +46,6 @@ export default function Footer() {
                 className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-v-yellow hover:bg-v-yellow hover:text-v-dark text-white/60 transition-all duration-300 group"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:border-v-yellow hover:bg-v-yellow hover:text-v-dark text-white/60 font-bold text-xs transition-all duration-300"
-              >
-                YT
               </a>
             </div>
           </div>
