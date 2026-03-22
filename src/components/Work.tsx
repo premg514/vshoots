@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 const reelItems = [
   { label: "Brand Story Reel", tag: "Brand", emoji: "🎬", bg: "from-[#1a1a1a] to-[#2a2a2a]" },
@@ -12,7 +12,7 @@ const reelItems = [
   { label: "Fitness Studio", tag: "Wellness", emoji: "💪", bg: "from-[#0f172a] to-[#1e293b]" },
 ];
 
-const variants = {
+const variants: Variants = {
   enter: (dir: number) => ({
     x: dir > 0 ? 300 : -300,
     opacity: 0,
@@ -22,13 +22,13 @@ const variants = {
     x: 0,
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.45, ease: "easeOut" },
   },
   exit: (dir: number) => ({
     x: dir > 0 ? -300 : 300,
     opacity: 0,
     scale: 0.9,
-    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.35, ease: "easeIn" },
   }),
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
@@ -21,11 +22,15 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="text-2xl font-black text-v-dark tracking-tighter group-hover:text-v-yellow transition-colors relative">
-            VSHOOTS
-            <div className="absolute -top-1 -right-2 text-v-yellow text-xl">⚡</div>
-          </div>
+        <Link href="/" className="flex items-center group">
+          <Image
+            src="https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png"
+            alt="Vshoots Logo"
+            width={120}
+            height={40}
+            className="h-10 w-auto object-contain group-hover:opacity-80 transition-opacity"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

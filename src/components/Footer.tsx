@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -24,15 +25,18 @@ export default function Footer() {
         >
           {/* Brand Column */}
           <div className="flex flex-col gap-6 items-center md:items-start text-center md:text-left">
-            <div>
-              <div className="text-3xl font-black tracking-tight text-white mb-1">
-                VSHOOTS <span className="text-v-yellow">⚡</span>
-              </div>
-              <p className="text-white/50 text-sm font-medium leading-relaxed max-w-xs mt-3">
-                The world&apos;s quickest content creation service. We shoot, edit, and deliver premium iPhone reels — almost instantly.
-              </p>
-            </div>
-
+            <Link href="/" className="inline-flex items-center gap-2 group">
+              <Image
+                src="https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png"
+                alt="Vshoots Logo"
+                width={130}
+                height={45}
+                className="h-11 w-auto object-contain brightness-0 invert group-hover:opacity-80 transition-opacity"
+              />
+            </Link>
+            <p className="text-white/50 text-sm font-medium leading-relaxed max-w-xs mt-3">
+              The world&apos;s quickest content creation service. We shoot, edit, and deliver premium iPhone reels — almost instantly.
+            </p>
             {/* Social icons */}
             <div className="flex gap-3">
               <a
