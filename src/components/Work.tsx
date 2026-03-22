@@ -238,7 +238,7 @@ function ActiveCard({
 
         <div className="relative z-10">
           <p className="text-white/60 text-[9px] font-bold tracking-[0.2em] uppercase mb-1.5">Vshoots Original</p>
-          <h4 className="text-white font-black text-lg sm:text-xl tracking-tight leading-none mb-4">{item.label}</h4>
+          <h3 className="text-white font-black text-lg sm:text-xl tracking-tight leading-none mb-4">{item.label}</h3>
           
           {/* Custom Progress Bar */}
           <div className="h-1 bg-white/10 rounded-full overflow-hidden">

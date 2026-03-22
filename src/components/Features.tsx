@@ -96,9 +96,9 @@ function FeatureCard({ feature, index }: { feature: (typeof features)[0]; index:
 
         {/* Text content */}
         <div className="relative z-10 flex-1 flex flex-col justify-end">
-          <h4 className="text-2xl font-black text-white tracking-tight mb-3 group-hover:text-[#F2BF18] transition-colors duration-400">
+          <h3 className="text-2xl font-black text-white tracking-tight mb-3 group-hover:text-[#F2BF18] transition-colors duration-400">
             {feature.title}
-          </h4>
+          </h3>
           <p className="text-white/40 text-sm leading-[1.8] font-medium group-hover:text-white/55 transition-colors duration-500">
             {feature.description}
           </p>
@@ -176,7 +176,7 @@ export default function Features() {
               </div>
             </div>
 
-            <h3 className="text-5xl sm:text-6xl xl:text-7xl font-black text-white tracking-[-0.02em] leading-[1.02]">
+            <h2 className="text-5xl sm:text-6xl xl:text-7xl font-black text-white tracking-[-0.02em] leading-[1.02]">
               Redefining{" "}
               <span className="relative inline-block">
                 <span className="text-[#F2BF18]">Content</span>
@@ -191,7 +191,7 @@ export default function Features() {
               </span>
               <br />
               for the Digital Age.
-            </h3>
+            </h2>
           </motion.div>
 
           <motion.div

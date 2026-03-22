@@ -10,8 +10,37 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vshoots - Quick Content Service",
-  description: "Shoot • Edit • Instant Delivery. Professional content creation services in Vijayawada.",
+  title: "Vshoots - Premium iPhone Reels & Content Creation in Vijayawada",
+  description: "Shoot • Edit • Instant Delivery. Professional cinematic reel production, product showcases, and branding content for businesses. Get high-quality 4K reels delivered faster than anyone else.",
+  keywords: ["Vshoots", "Reel Production Vijayawada", "iPhone Photography", "Content Creation", "Social Media Marketing", "Video Editing", "Cinematic Reels"],
+  authors: [{ name: "Digital Arc Technologies" }],
+  icons: {
+    icon: [
+      { url: "https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png", type: "image/png" },
+    ],
+    apple: "https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png",
+  },
+  openGraph: {
+    title: "Vshoots - Premium Content Creation",
+    description: "Shoot • Edit • Instant Delivery. Premium iPhone reels for brands.",
+    url: "https://vshoots.in",
+    siteName: "Vshoots",
+    images: [
+      {
+        url: "https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vshoots - Premium Content Creation",
+    description: "High-end iPhone reels delivered instantly.",
+    images: ["https://res.cloudinary.com/deeejohfw/image/upload/v1774190718/IMG_3745_dacau7.png"],
+  },
 };
 
 export default function RootLayout({
